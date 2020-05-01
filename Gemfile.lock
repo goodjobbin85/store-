@@ -153,6 +153,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    scanf (1.0.0)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -208,6 +209,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)
   sass-rails (>= 6)
+  scanf
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)

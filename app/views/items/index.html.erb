@@ -1,0 +1,9 @@
+<h1 align="center">All Products</h1>
+
+<div align="center">
+  <ol>
+    <% @items.each do |item| %>
+      Product Name: <%= item.name %> | Quantity: <%= item.quantity %>
+    <% end %>
+  </ol>
+</div>
