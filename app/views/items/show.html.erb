@@ -1,4 +1,4 @@
-<h1 align="center">Item Details</h1>
+<h1 align="center">Item Details | <%= link_to "Edit", edit_item_path(@item) %></h1>
 
 <div align="center">
   <p>Product Name: <%= @item.name %></p>
@@ -7,4 +7,9 @@
   <p><%= @item.image %></p>
   <p>Quantity: <%= @item.quantity %></p>
   <p>Price: <%= @item.price %></p>
+</div>
+
+<div align="center">
+  <%= link_to "Delete Post", @user, method: :delete, data: { confirm: "Are you sure?"} %>
+  <%= link_to "Home", items_path %> 
 </div>
