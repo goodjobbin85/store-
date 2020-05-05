@@ -3,7 +3,7 @@
 <div align="center">
   <ol>
     <% @items.each do |item| %>
-      <li>Product Name: <%= item.name %> | Quantity: <%= item.quantity %></li>
+      <li>Product Name: <%= link_to item.name, item %> | Quantity: <%= item.quantity %></li>
     <% end %>
   </ol>
 </div>
