@@ -2,6 +2,8 @@
 
 <ol>
   <% @users.each do |user| %>
-    <li><%= link_to user.name.capitalize, user %>: <%= user.email %></li>
+    <li><%= link_to user.name.capitalize, user %>: <%= user.email %> |
+        <%= link_to "Edit User", edit_user_path(user) %> |
+        <%= link_to "Delete Account", user_path(user), method: :delete, data: { confirm: "Are You Sure?" } %></li>
   <% end %>
 </ol>
