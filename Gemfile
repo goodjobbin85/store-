@@ -8,6 +8,8 @@ gem 'annotate'
 gem 'rails-erd'
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use sqlite3 as the database for Active Record
