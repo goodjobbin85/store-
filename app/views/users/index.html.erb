@@ -2,6 +2,6 @@
 
 <ol>
   <% @users.each do |user| %>
-    <li><%= user.name.capitalize %>: <%= user.email %></li>
+    <li><%= link_to user.name.capitalize, user %>: <%= user.email %></li>
   <% end %>
 </ol>
