@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Item.delete_all
+User.delete_all
 
 50.times do
   Item.create!(
@@ -16,5 +17,14 @@ Item.delete_all
     image: "default image",
     quantity: rand(10 ** 4),
     price: 9.99
+  )
+end
+
+
+
+50.times do
+  User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email(name: Faker::Name.name)
   )
 end
