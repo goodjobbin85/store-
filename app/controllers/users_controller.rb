@@ -8,7 +8,10 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new 
+    @user = User.new
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end 
 end
