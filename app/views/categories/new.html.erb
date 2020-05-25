@@ -1,0 +1,11 @@
+<h1 align="center">Create A Category</h1>
+
+<div align="center">
+  <%= form_for @category do |f| %>
+    <p><%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+
+    <p><%= f.submit class: "btn btn-primary" %></p>
+  <% end %>
+</div>
