@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'static#home'
-  
+
   get 'static/home'
   resources :shops do
     resources :items
@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :users
 
   resources :shops
+  resources :categories
 end
