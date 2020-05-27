@@ -1,0 +1,8 @@
+<div align="center">
+  <h1>Browse Our Shops</h1>
+  <% @shops.each do |shop| %>
+    <p><%= shop.name %> | <%= link_to "Edit Shop", edit_shop_path(shop) %> | <%= link_to "Delete Shop", shop_path(shop), method: :delete, data: { confirm: "Are You Sure?" } %></p>
+  <% end %>
+
+  <%= link_to "Create New Shop", new_shop_path, class: "btn btn-primary" %>
+</div>
