@@ -6,7 +6,7 @@ class ShopsController < ApplicationController
   end
 
   def show
-
+    @shop.items.build
   end
 
   def new

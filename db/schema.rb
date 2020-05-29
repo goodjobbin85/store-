@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_154255) do
+ActiveRecord::Schema.define(version: 2020_05_29_000257) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "item_categories", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_item_categories_on_category_id"
+    t.index ["item_id"], name: "index_item_categories_on_item_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -28,6 +37,13 @@ ActiveRecord::Schema.define(version: 2020_05_25_154255) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "shop_id"
+  end
+
+  create_table "items_categories", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_items_categories_on_category_id"
+    t.index ["item_id"], name: "index_items_categories_on_item_id"
   end
 
   create_table "shops", force: :cascade do |t|

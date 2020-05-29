@@ -12,5 +12,46 @@
       <% end %>
   </ul>
 
+<!-- form for creating a new item
+ item is only created through a store.
+ item does not exist without store
+ item must have a category, which the user can
+ pick from a dropdown menu, or create if none apply
+-->
+  <h4>Add Item To Shop</h4>
+
+  <%= form_for [@shop, Item.new] do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </p>
+    <p>
+      <%= f.label :sku %>
+      <%= f.text_field :sku %>
+    </p>
+    <p>
+      <%= f.label :image %>
+      <%= f.text_field :image %>
+    <p>
+    <p>
+      <%= f.label :quanitty %>
+      <%= f.text_field :quantity %>
+    <p>
+    <p>
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </p>
+
+    <p>
+      <%= f.label :category %>
+      <%= f.text_field :category_id %>
+    </p>
+    <p><%= f.submit %>
+  <% end %>
+
   <%= link_to "All Shops", shops_path, class: "btn btn-primary" %>
 </div>

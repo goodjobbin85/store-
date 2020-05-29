@@ -13,10 +13,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(set_params)
     if @item.valid?
       @item.save
-      redirect_to item_path(@item)
+      redirect_to shop_path(@item.shop)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
       redirect_to item_path(@item)
     else
       render :edit
-    end 
+    end
   end
 
   def destroy
@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   private
 
   def set_params
-    params.require(:item).permit(:name, :description, :image, :quantity, :price, :sku)
+    params.require(:item).permit(:name, :description, :image, :quantity, :price, :sku, :category_id)
   end
 
   def set_item
