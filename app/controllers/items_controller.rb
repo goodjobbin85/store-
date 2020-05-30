@@ -13,9 +13,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(set_params)
-    if @item.valid?
-      @item.save
+    @shop = Shop.find(params[:shop_id])
+    @item = @shop.items.create(set_params)
+    if @item.save
       redirect_to shop_path(@item.shop)
     else
       render :new
@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   private
 
   def set_params
-    params.require(:item).permit(:name, :description, :image, :quantity, :price, :sku, :category_id)
+    params.require(:item).permit(:name, :description, :image, :quantity, :price, :sku)
   end
 
   def set_item

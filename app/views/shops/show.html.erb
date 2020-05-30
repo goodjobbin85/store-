@@ -8,7 +8,7 @@
 
   <ul>
       <% @shop.items.each do |item| %>
-        <li><%= item.name %>: <%= item.quantity %> units</li>
+        <li><%= item.name %> <%= item.quantity %></li>
       <% end %>
   </ul>
 
@@ -16,11 +16,24 @@
  item is only created through a store.
  item does not exist without store
  item must have a category, which the user can
- pick from a dropdown menu, or create if none apply
--->
+ pick from a dropdown menu, or create if none apply -->
+
   <h4>Add Item To Shop</h4>
 
-  <%= form_for [@shop, Item.new] do |f| %>
+  <%= form_for [@shop, @shop.items.build] do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@item.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
     <p>
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -46,11 +59,9 @@
       <%= f.text_field :price %>
     </p>
 
-    <p>
-      <%= f.label :category %>
-      <%= f.text_field :category_id %>
-    </p>
-    <p><%= f.submit %>
+
+
+    <%= f.submit %>
   <% end %>
 
   <%= link_to "All Shops", shops_path, class: "btn btn-primary" %>

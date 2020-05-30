@@ -2,6 +2,10 @@
   <h1><%= @category.name.capitalize %></h1>
 
   <h3>Items In This Category</h3>
-
+  <ol>
+    <% @category.items.each do |item| %>
+      <li><%= item.name %></li>
+    <% end %>
+  </ol>
   <%= link_to "Create Category", new_category_path, class: "btn btn-primary"  %>
 </div>
