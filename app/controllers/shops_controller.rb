@@ -7,7 +7,8 @@ class ShopsController < ApplicationController
 
   def show
     #@shop.items.build
-    @item = @shop.items.build
+    #@item = @shop.items.build
+    
   end
 
   def new

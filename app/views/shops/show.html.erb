@@ -6,11 +6,13 @@
 
   <h3>Products</h3>
 
-  <ul>
-      <% @shop.items.each do |item| %>
-        <li><%= item.name %> <%= item.quantity %></li>
-      <% end %>
-  </ul>
+  <% if !@shop.items.empty? %>
+    <ul>
+        <% @shop.items.each do |item| %>
+          <li><%= item.name %>: <%= item.quantity %> units</li>
+        <% end %>
+    </ul>
+  <% end %>
 
 <!-- form for creating a new item
  item is only created through a store.
@@ -21,19 +23,7 @@
   <h4>Add Item To Shop</h4>
 
   <%= form_for [@shop, @shop.items.build] do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@item.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @item.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    
     <p>
       <%= f.label :name %>
       <%= f.text_field :name %>
