@@ -10,7 +10,10 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @shop = Shop.find(params[:shop_id])
+    #@item = Item.new
+    @item = @shop.items.find(params[:item_id])
+
   end
 
   def create
@@ -45,7 +48,7 @@ class ItemsController < ApplicationController
   private
 
   def set_params
-    params.require(:item).permit(:name, :description, :image, :quantity, :price, :sku)
+    params.require(:item).permit(:name, :description, :image, :quantity, :price, :sku, category_ids: [], categories_attributes: [:name])
   end
 
   def set_item
