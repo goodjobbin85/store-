@@ -11,4 +11,8 @@ Rails.application.routes.draw do
 
   resources :shops
   resources :categories
+
+  get '/login', to: "session#create", as: "login"
+  get '/logout', to: "sessions#destroy", as: "logout"
+  get '/signup', to: "users#new", as: "signup"
 end
