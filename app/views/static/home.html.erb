@@ -8,13 +8,16 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-          <%= link_to "Sign Up", new_user_path, class: "btn btn-primary btn-lg" %>
+          <%= link_to "Sign Up", signup_path, class: "btn btn-primary btn-lg" %>
       </div>
       <div class="col-sm">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Log In</a>
+          <%= link_to "Log In", login_path, class: "btn btn-primary btn-lg" %>
       </div>
       <div class="col-sm">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Browse Categories</a>
+          <%= link_to "Log Out", logout_path, class: "btn btn-primary btn-lg" %>
+      </div>
+      <div class="col-sm">
+          <%= link_to "Browse Categories", categories_path, class: "btn btn-primary btn-lg" %>
       </div>
     </div>
   </div>
