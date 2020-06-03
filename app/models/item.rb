@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   belongs_to :shop
+  before_destroy :has_references?
 
+  has_many :line_items
   has_many :item_categories
   has_many :categories, through: :item_categories
   #accepts_nested_attributes_for :categories
@@ -12,5 +14,10 @@ class Item < ApplicationRecord
     end
   end
 
-  
+  private
+
+  def has_references?
+
+  end 
+
 end
