@@ -2,8 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @shop = Shop.find(params[:shop_id])
-    @items = @shop.items
+    @items = Item.all
   end
 
   def show

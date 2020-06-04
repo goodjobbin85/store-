@@ -17,7 +17,10 @@ class Item < ApplicationRecord
   private
 
   def has_references?
-
-  end 
+    unless line_items.empty?
+      errors.add(:base, "Line Items Present")
+      throw :abort
+    end 
+  end
 
 end

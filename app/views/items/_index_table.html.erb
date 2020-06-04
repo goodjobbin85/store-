@@ -21,6 +21,7 @@
         <td><%= item.image %></td>
         <td><%= item.quantity %></td>
         <td><%= item.price %></td>
+        <td><%= button_to "Add To Cart", line_items_path(item_id: item.id) %></td>
       </tr>
     <% end %>
   </tbody>

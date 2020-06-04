@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
+<div align="center">
+  <h1>Your Cart</h1>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+  <% @cart.line_items.each do |line_item| %>
+    <p><%= line_item.item.name %> | $<%= line_item.item.price %></p>
+  <% end %>
+
+  <%= link_to 'Edit', edit_cart_path(@cart) %> |
+  <%= link_to 'Back', carts_path %>
+</div> 
