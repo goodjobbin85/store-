@@ -7,9 +7,6 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to "Home", root_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
         <%= link_to "All Stores", shops_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
@@ -28,7 +25,7 @@
         <%= link_to "All Categories", categories_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" tabindex="-1">Sign Up</a>
+        <%= link_to "Sign Up", signup_path, class: "nav-link" %>
       </li>
       <% if logged_in? %>
         <li class="nav-item">
@@ -41,7 +38,10 @@
       <% end %>
       <% if logged_in? %>
         <li class="nav-item">
-          Logged in as: <%= current_user.name %>
+          Logged in as: <%= link_to current_user.name, user_path(current_user) %> |
+        </li>
+        <li class="nav-item">
+          <%= link_to "All Users", users_path %>
         </li>
       <% end %>
     </ul>
