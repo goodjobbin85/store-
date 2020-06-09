@@ -2,10 +2,10 @@
 
 <%= form_for [@shop, Item.new] do |f| %>
   <% if @item.errors.any? %>
-    <div id="error_explanation">
+    <div>
       <h2>
         <%= pluralize(@item.errors.count, "error") %> prohibited
-        this article from being saved:
+        this item from saving:
       </h2>
       <ul>
         <% @item.errors.full_messages.each do |msg| %>
@@ -39,7 +39,7 @@
     <%= f.text_field :price %>
   </p>
 
-  
+
 
   <p><%= f.submit %></p>
 <% end %>
