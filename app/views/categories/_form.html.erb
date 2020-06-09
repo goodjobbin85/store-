@@ -1,5 +1,18 @@
 <div align="center">
   <%= form_for @category do |f| %>
+    <% if @category.errors.any? %>
+      <div>
+        <h2>
+          <%= pluralize(@category.errors.count, "error") %> prohibited
+          this item from saving:
+        </h2>
+        <ul>
+          <% @category.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <p><%= f.label :name %>
       <%= f.text_field :name %>
     </p>
