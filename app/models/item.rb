@@ -2,6 +2,12 @@ class Item < ApplicationRecord
   belongs_to :shop
   before_destroy :has_references?
 
+  validates :name, presence: true, uniqueness: true
+  validates :description, presence: true, length: { maximum: 300 }
+  validates :sku, presence: true, uniqueness: true, numericality: { ony_integer: true }
+  validates :quantity, presence: true, numericality: { only_integer: true }
+  validates :price, presence: true, numericality: true
+
   has_many :line_items
   has_many :item_categories
   has_many :categories, through: :item_categories
@@ -20,7 +26,7 @@ class Item < ApplicationRecord
     unless line_items.empty?
       errors.add(:base, "Line Items Present")
       throw :abort
-    end 
+    end
   end
 
 end
