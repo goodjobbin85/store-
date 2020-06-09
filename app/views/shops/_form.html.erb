@@ -1,5 +1,18 @@
 <div align="center">
   <%= form_for @shop do |f| %>
+    <% if @shop.errors.any? %>
+      <div>
+        <h2>
+          <%= pluralize(@shop.errors.count, "error") %> prohibited
+          this shop from saving:
+        </h2>
+        <ul>
+          <% @shop.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <p>
       <%= f.label :name %>
       <%= f.text_field :name %>
