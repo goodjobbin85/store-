@@ -18,7 +18,8 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
-    if @shop.save
+    if @shop.valid?
+      @shop.save
       redirect_to shop_path(@shop)
     else
       render :new
