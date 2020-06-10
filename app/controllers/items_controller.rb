@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @shop = Shop.find(params[:shop_id])
+    @items = @shop.items
   end
 
   def show
@@ -47,7 +48,7 @@ class ItemsController < ApplicationController
   private
 
   def set_params
-    params.require(:item).permit(:name, :description, :image, :quantity, :price, :sku, category_ids: [], :category_name)
+    params.require(:item).permit(:name, :description, :image, :quantity, :price, :sku, category_ids: [])
   end
 
   def set_item
