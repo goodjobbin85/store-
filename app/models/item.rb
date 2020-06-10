@@ -13,10 +13,18 @@ class Item < ApplicationRecord
   has_many :categories, through: :item_categories
   #accepts_nested_attributes_for :categories
 
+  def category_name=(name)
+     self.categories.first = Category.find_or_create_by(name: name)
+   end
+
+   def category_name
+      self.categories.first ? self.categories.first.name : nil
+   end
+
   def categories_attributes=(category_attributes)
     category_attributes.values.each do |category_attribute|
       category = Category.find_or_create_by(category_attribute)
-      self.categories << category
+      self.categories << category if category
     end
   end
 

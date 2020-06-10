@@ -50,11 +50,10 @@
     </p>
 
     <p><%= f.collection_check_boxes :category_ids, Category.all, :id, :name %></p>
+    
     <p>
-       <%= f.fields_for :categories, @shop.items.first.categories.build do |categories_fields| %>
-        <%= categories_fields.label "Category Name" %>
-        <%= categories_fields.text_field :name %>
-       <% end %>
+      <%= f.label :category_name %>
+      <%= f.text_field :category_name %>
     </p>
     <%= f.submit %>
   <% end %>
