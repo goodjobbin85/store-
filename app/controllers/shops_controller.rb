@@ -3,13 +3,13 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
-    #@items = @shop.items
+
   end
 
   def show
     #@shop.items.build
     #@item = @shop.items.build
-
+    @items = @shop.items.order_by_units
   end
 
   def new

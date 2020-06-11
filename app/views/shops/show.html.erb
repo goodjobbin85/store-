@@ -2,15 +2,16 @@
 <div align="center">
   <h2>Shop Details</h2>
 
-  <p><%= @shop.name.capitalize %> | <%= link_to "All Items", shop_items_path(@shop, @item) %> | <%= link_to "Create New Item", new_shop_item_path(@shop) %></p> 
+  <p><%= @shop.name.capitalize %> | <%= link_to "All Items", shop_items_path(@shop, @item) %> | <%= link_to "Create New Item", new_shop_item_path(@shop) %></p>
 
-  <h3>Products</h3>
+  <h3>Most Available Products</h3>
 
   <% if !@shop.items.empty? %>
     <ul>
-        <% @shop.items.each do |item| %>
+        <% @items.each do |item| %>
           <li><%= item.name %>: <%= item.quantity %> units</li>
         <% end %>
+        <%= link_to "All (#{@shop.items.size}) Products", shop_items_path(@shop)  %> 
     </ul>
   <% end %>
 

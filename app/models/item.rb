@@ -2,6 +2,12 @@ class Item < ApplicationRecord
   belongs_to :shop
   before_destroy :has_references?
 
+  scope :order_by_units, -> { order(quantity: :desc).limit(5) }
+
+  def self.order_by_units
+    order(quantity: :desc)
+  end
+
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, length: { maximum: 300 }
   validates :sku, presence: true, uniqueness: true, numericality: { ony_integer: true }
