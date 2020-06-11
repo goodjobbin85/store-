@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :items
   end
 
-  resources :items
+  resources :items, except: [:index]
   resources :users
 
   resources :shops

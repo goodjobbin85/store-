@@ -7,9 +7,10 @@
   <p><%= @item.image %></p>
   <p>Quantity: <%= @item.quantity %></p>
   <p>Price: <%= @item.price %></p>
+  <p>Seller: <%= link_to @item.shop.name, shop_path(@item.shop) %></p>
 </div>
 
 <div align="center">
   <%= link_to "Delete Post", @user, method: :delete, data: { confirm: "Are you sure?"} %>
-  <%= link_to "Home", items_path %> 
+  <%= link_to "Home", items_path %>
 </div>
