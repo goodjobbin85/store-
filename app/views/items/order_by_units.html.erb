@@ -1,0 +1,28 @@
+<table class="table table-light table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">SKU</th>
+      <th scope="col">Image</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= link_to item.name.upcase, shop_item_path(@shop, item.id) %></td>
+        <td><%= item.description %></td>
+        <td><%= item.sku %></td>
+        <td><%= item.image %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.price %></td>
+        <td><%= button_to "Add To Cart", line_items_path(item_id: item.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

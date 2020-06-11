@@ -47,6 +47,11 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def order_by_units
+    @shop = Shop.find(params[:shop_id])
+    @items = @shop.items.order_by_units
+  end
+
   private
 
   def set_params

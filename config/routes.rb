@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :items, except: [:index]
+
   resources :users
 
   resources :shops
