@@ -15,7 +15,7 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.id %></td>
-        <td><%= item.name.upcase %></td>
+        <td><%= link_to item.name.upcase, shop_item_path(@shop, item.id) %></td>
         <td><%= item.description %></td>
         <td><%= item.sku %></td>
         <td><%= item.image %></td>

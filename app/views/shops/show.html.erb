@@ -2,7 +2,7 @@
 <div align="center">
   <h2>Shop Details</h2>
 
-  <p><%= @shop.name.capitalize %></p>
+  <p><%= @shop.name.capitalize %> | <%= link_to "All Items", shop_items_path(@shop, @item) %> | <%= link_to "Create New Item", new_shop_item_path(@shop) %></p> 
 
   <h3>Products</h3>
 
@@ -50,7 +50,7 @@
     </p>
 
     <p><%= f.collection_check_boxes :category_ids, Category.all, :id, :name %></p>
-    
+
     <p>
       <%= f.label :category_name %>
       <%= f.text_field :category_name %>

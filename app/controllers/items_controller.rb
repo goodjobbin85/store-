@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
     @shop = Shop.find(params[:shop_id])
@@ -7,12 +7,14 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @shop = Shop.find(params[:shop_id])
+    @item = Item.find(params[:id])
   end
 
   def new
     @shop = Shop.find(params[:shop_id])
     #@item = Item.new
-    @item = @shop.items.find(params[:item_id])
+    @item = @shop.items.build
 
   end
 
