@@ -3,9 +3,9 @@
   <h1>Your Cart</h1>
 
   <% @cart.line_items.each do |line_item| %>
-    <p><%= line_item.item.name %> | $<%= line_item.item.price %></p>
+    <p><%= line_item.quantity %>&times; <%= line_item.item.name %> | $<%= line_item.item.price %></p>
   <% end %>
 
   <%= link_to 'Edit', edit_cart_path(@cart) %> |
   <%= link_to 'Back', carts_path %>
-</div> 
+</div>
