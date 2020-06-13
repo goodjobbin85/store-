@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :items, except: [:index]
+  get '/auth/facebook/callback' => 'sessions#create'
 
   resources :users
 

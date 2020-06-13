@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :cart, dependent: :destroy
   validates :name, presence: true
   validates :password, presence: true, length: { minimum: 8 }
   EMAIL_REGEX =  /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
