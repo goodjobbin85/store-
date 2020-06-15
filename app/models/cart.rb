@@ -11,4 +11,13 @@ class Cart < ApplicationRecord
     end
     current_item
   end
+
+  def total_checkout_price
+    sum = 0
+    #call to_a on self.line_items because self.line_items return a relation, not an array
+    self.line_items.to_a.each do |item|
+      sum += item.total_price
+    end
+    sum
+  end
 end

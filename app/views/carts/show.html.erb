@@ -4,8 +4,10 @@
   <%= button_to "Empty Cart", @cart, method: :delete, data: { confirm: "Are You Sure?" } %>
 
   <% @cart.line_items.each do |line_item| %>
-    <p><%= line_item.quantity %>&times; <%= line_item.item.name %> | $<%= line_item.item.price %></p>
+    <p><%= line_item.quantity %>&times; <%= line_item.item.name %> | $<%= line_item.total_price %></p>
   <% end %>
+
+  <h2>Total Checkout Price: $<%= @cart.total_checkout_price %></h2>
 
   <%= link_to 'Edit', edit_cart_path(@cart) %> |
   <%= link_to 'Back', carts_path %>
