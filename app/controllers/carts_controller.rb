@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   # GET /carts
   # GET /carts.json
@@ -54,7 +55,7 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart.destroy 
+    @cart.destroy
     session[:cart_id] = nil
     redirect_to shops_path
   end
@@ -63,6 +64,11 @@ class CartsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
       @cart = Cart.find(params[:id])
+    end
+
+    def invalid_cart
+      logger.error "Attempted to access an invalid cart #{params[:id] }"
+      redirect_to root_path
     end
 
     # Only allow a list of trusted parameters through.
