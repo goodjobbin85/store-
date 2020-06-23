@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+  include CurrentCart
   before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :set_cart
 
   def index
       @shop = Shop.find(params[:shop_id])
@@ -7,7 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(params[:shop_id])
+    #@shop = Shop.find(params[:shop_id])
     @item = Item.find(params[:id])
   end
 

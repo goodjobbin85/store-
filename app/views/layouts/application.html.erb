@@ -14,5 +14,11 @@
     <%= render 'layouts/nav' %>
 
     <%= yield %>
+
+    <div id="sidebar">
+      <div id="cart">
+        <%= render @cart if logged_in? %>
+      </div>
+    </div>
   </body>
 </html>

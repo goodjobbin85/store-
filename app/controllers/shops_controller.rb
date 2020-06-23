@@ -1,6 +1,8 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:show, :edit, :update, :destroy]
-
+  include CurrentCart
+  before_action :set_cart
+  
   def index
     @shops = Shop.all
 
