@@ -2,15 +2,13 @@ class ShopsController < ApplicationController
   before_action :set_shop, only: [:show, :edit, :update, :destroy]
   include CurrentCart
   before_action :set_cart
-  
+
   def index
     @shops = Shop.all
 
   end
 
   def show
-    #@shop.items.build
-    #@item = @shop.items.build
     @items = @shop.items.order_by_units
   end
 
