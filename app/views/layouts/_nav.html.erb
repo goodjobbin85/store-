@@ -24,9 +24,6 @@
       <li class="nav-item">
         <%= link_to "All Categories", categories_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Sign Up", signup_path, class: "nav-link" %>
-      </li>
       <% if logged_in? %>
         <li class="nav-item">
           <%= link_to "Log Out", logout_path, class: "nav-link" %>
@@ -42,6 +39,9 @@
           Logged in as:  <%= link_to current_user.name, user_path(current_user) %> | <%= link_to "Log Out", logout_path %>
         </li>
       <% else %>
+        <li class="nav-item">
+          <%= link_to "Sign Up", signup_path, class: "nav-link" %>
+        </li>
         <li class="nav-item">
           <%= link_to "All Users", users_path %>
         </li>
