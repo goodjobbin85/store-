@@ -5,11 +5,10 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
-
   end
 
   def show
-    @items = @shop.items.order_by_units
+    @items = @shop.items.order_by_quantity
   end
 
   def new

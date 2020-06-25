@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   belongs_to :shop
   before_destroy :has_references?
 
-  scope :order_by_units, -> { order(quantity: :desc).limit(5) }
+  scope :order_by_quantity, -> { order(quantity: :desc).limit(5) }
 
   def self.order_by_units
     order(quantity: :desc)
